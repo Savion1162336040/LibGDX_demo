@@ -2,6 +2,7 @@ package com.mygdx.game.myhome;
 
 import com.badlogic.gdx.Game;
 import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.Input;
 import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.OrthographicCamera;
@@ -252,6 +253,15 @@ public class HomeScreen implements Screen {
         update(delta);
     }
 
+    private void handleInput() {
+        if (Gdx.input.isKeyJustPressed(Input.Keys.RIGHT) && mario.body.getLinearVelocity().x <= 2) {
+            mario.body.applyLinearImpulse(new Vector2(0.1f, 0), mario.body.getWorldCenter(), true);
+        }
+        if (Gdx.input.isKeyJustPressed(Input.Keys.LEFT) && mario.body.getLinearVelocity().x >= -2) {
+            mario.body.applyLinearImpulse(new Vector2(-0.1f,0),mario.body.getWorldCenter(),true);
+        }
+    }
+
     private float accumulator;
 
     private float cameraLeftLimit;
@@ -260,6 +270,8 @@ public class HomeScreen implements Screen {
     public void update(float delta) {
         delta *= GameManager.timeScale;
         float step = GameManager.STEP * GameManager.timeScale;
+
+        handleInput();
 
         // Box2D world step
         accumulator += delta;

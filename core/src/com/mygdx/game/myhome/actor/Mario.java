@@ -14,10 +14,6 @@ import com.badlogic.gdx.utils.Array;
 import com.mygdx.game.myhome.GameManager;
 import com.mygdx.game.myhome.HomeScreen;
 
-import java.util.ArrayList;
-
-import javafx.stage.Stage;
-
 public class Mario extends SenceBody {
 
     public enum State {

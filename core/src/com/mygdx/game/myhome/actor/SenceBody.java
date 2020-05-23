@@ -13,7 +13,7 @@ public abstract class SenceBody extends Sprite {
 
     protected HomeScreen screen;
 
-    protected Body body;
+    public Body body;
 
     public SenceBody(HomeScreen screen,float x,float y){
         this.screen = screen;
